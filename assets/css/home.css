@@ -1,0 +1,217 @@
+/* GODS homepage — styles that supplement assets/css/style.css.
+   The shared stylesheet and all other pages remain unchanged. */
+
+/* Three research topics, rather than the four-card original homepage. */
+.home-research-mosaic {
+    grid-template-columns: 1.05fr 1fr;
+    grid-template-rows: 295px 295px;
+    gap: 16px;
+}
+
+.home-research-mosaic .mosaic-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.home-research-mosaic .mosaic-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.home-research-mosaic .mosaic-item:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.home-research-mosaic .mosaic-item:nth-child(2) .mosaic-caption h3,
+.home-research-mosaic .mosaic-item:nth-child(3) .mosaic-caption h3 {
+    font-size: clamp(22px, 2vw, 31px);
+    max-width: 550px;
+}
+
+.home-research-mosaic .mosaic-caption span:first-child {
+    max-width: calc(100% - 28px);
+}
+
+/* Direct links to all three scientific-output categories. */
+.home-output-links {
+    align-self: center;
+}
+
+.home-output-links .section-no {
+    margin-bottom: 14px;
+}
+
+.home-output-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 17px 0;
+    border-bottom: 1px solid #c5ced0;
+    font: 700 clamp(15px, 1.55vw, 20px)/1.4 var(--display);
+    letter-spacing: -.02em;
+}
+
+.home-output-link:hover {
+    color: #476b82;
+}
+
+.home-output-link span:last-child {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Links to the two actual Research Data article pages. */
+.home-data-links {
+    width: 100%;
+    max-width: 590px;
+    border-top: 1px solid #bbc8ce;
+    margin: 4px 0 30px;
+}
+
+.home-data-links a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #bbc8ce;
+    font: 700 clamp(14px, 1.25vw, 17px)/1.5 var(--display);
+}
+
+.home-data-links a:hover {
+    color: #426e87;
+}
+
+.home-data-ref {
+    grid-column: 1 / 3;
+    color: #94705c;
+    font: 700 10px/1.3 var(--display);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.home-data-arrow {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.home-data-main-link {
+    margin-top: 4px;
+}
+
+/* The next workshop and the first edition's group photograph. */
+.home-workshop-panel {
+    grid-template-columns: 1fr 1.05fr;
+    gap: clamp(26px, 4vw, 70px);
+}
+
+.home-workshop-copy {
+    padding-right: 6px;
+}
+
+.home-workshop-panel h3 {
+    max-width: 600px;
+}
+
+.home-workshop-panel .home-workshop-date {
+    font: 700 19px/1.5 var(--display);
+    color: #a26f52;
+    margin: 5px 0 16px;
+}
+
+.home-past-workshop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    margin-top: 32px;
+    padding-top: 23px;
+    border-top: 1px solid #b8c2c8;
+}
+
+.home-past-workshop a {
+    font: 700 16px/1.35 var(--display);
+    text-decoration: underline;
+    text-decoration-color: #9faeb7;
+    text-underline-offset: 5px;
+}
+
+.home-past-workshop > span:last-child {
+    font-size: 13px;
+    color: #586d77;
+}
+
+.home-workshop-photo {
+    margin: 0;
+    align-self: stretch;
+}
+
+.home-workshop-photo a,
+.home-workshop-photo img {
+    display: block;
+    width: 100%;
+}
+
+.home-workshop-photo img {
+    aspect-ratio: 1.36;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-workshop-photo figcaption {
+    padding-top: 12px;
+    font-size: 12px;
+    color: #586d77;
+    line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+    .home-research-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 265px 265px;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-research-mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: 350px 255px 255px;
+        gap: 11px;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .home-research-mosaic .mosaic-item:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .home-research-mosaic .mosaic-caption h3,
+    .home-research-mosaic .mosaic-item:nth-child(2) .mosaic-caption h3,
+    .home-research-mosaic .mosaic-item:nth-child(3) .mosaic-caption h3 {
+        font-size: clamp(22px, 5vw, 29px);
+    }
+    .home-workshop-panel {
+        grid-template-columns: 1fr;
+    }
+    .home-workshop-photo img {
+        aspect-ratio: 1.55;
+    }
+}
