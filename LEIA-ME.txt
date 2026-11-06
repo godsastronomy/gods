@@ -1,0 +1,11 @@
+GODS | Publications com suporte a Conference Presentations
+
+1. Copie publications.html para a raiz do site.
+2. Substitua apenas assets/js/site.js pela versao desta pasta.
+   Ela e baseada no seu site(2).js, preservando integralmente todas as outras funcoes.
+3. No SEU proprio assets/js/content.js, adicione a propriedade presentations
+   dentro de publications (veja content-example.txt). Nao substitua o arquivo content.js.
+4. Confira no Phoenix Code com Live Preview (nao file://).
+
+O codigo de Research, People, Events, Research Data, Home, cabecalho e rodape
+foi preservado do site(2).js, inclusive o email nao clicavel dos integrantes.

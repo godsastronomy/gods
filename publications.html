@@ -1,125 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="#08243d" name="theme-color"/>
-  <meta content="Scientific publications of GODS and related work by group members." name="description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="Publications | GODS" property="og:title"/>
-  <meta content="Scientific publications of GODS and related work by group members." property="og:description"/>
-  <meta content="assets/images/hero-orbits.webp" property="og:image"/>
-  <title>
-   Publications | GODS &mdash; Group of Origin and Dynamics of Satellites
-  </title>
-  <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="assets/css/style.css" rel="stylesheet"/>
-  <script defer="" src="assets/js/content.js">
-  </script>
-  <script defer="" src="assets/js/layout.js">
-  </script>
- </head>
- <body>
-  <a class="skip-link" href="#main">
-   Skip to content
-  </a>
-  <div id="site-header-placeholder">
-  </div>
-  <main id="main">
-   <section class="page-hero">
-    <img alt="" aria-hidden="true" class="hero-bg" src="assets/images/rings.webp"/>
-    <div class="container">
-     <div class="breadcrumb">
-      <a href="index.html">
-       GODS
-      </a>
-      <span>
-       /
-      </span>
-      <span>
-       Publications
-      </span>
-     </div>
-     <h1 class="display">
-      Research,
-      <br/>
-      in print.
-     </h1>
-     <p>
-      Peer-reviewed research and other scientific contributions by members of the group.
-     </p>
-    </div>
-   </section>
-   <section class="page-intro">
-    <div class="container page-intro-grid">
-     <div class="kicker overline">
-      Scholarly output
-     </div>
-     <div>
-      <h2 class="display">
-       Science is built on shared knowledge.
-      </h2>
-      <p>
-       Browse the scientific output associated with GODS. The archive distinguishes publications produced within the group from related research by its members in other collaborations.
-      </p>
-     </div>
-    </div>
-   </section>
-   <section class="archive-section surface-white">
-    <div class="container">
-     <div class="archive-tools">
-      <div aria-label="Publication categories" class="tabs" role="tablist">
-       <button aria-selected="true" data-publication-tab="group" role="tab" type="button">
-        Group Publications
-       </button>
-       <button aria-selected="false" data-publication-tab="related" role="tab" type="button">
-        Related Publications
-       </button>
-      </div>
-      <div class="filter-fields">
-       <label class="sr-only" for="publication-search">
-        Search publications
-       </label>
-       <input autocomplete="off" id="publication-search" placeholder="Search titles or authors&hellip;" type="search"/>
-       <label class="sr-only" for="publication-year">
-        Filter by year
-       </label>
-       <select id="publication-year">
-        <option value="">
-         All years
-        </option>
-       </select>
-      </div>
-     </div>
-     <div aria-live="polite" class="result-count" id="publication-count">
-     </div>
-     <div aria-live="polite" id="publications-list">
-     </div>
-    </div>
-   </section>
-   <section class="action-band">
-    <div class="container">
-     <div>
-      <div class="kicker">
-       Beyond the papers
-      </div>
-      <h2 class="display">
-       Explore the research itself.
-      </h2>
-      <p>
-       Discover the physical questions and models that underpin our published work.
-      </p>
-     </div>
-     <a class="line-link" href="research.html">
-      Our research
-      <span class="arrow">
-       &nearrow;
-      </span>
-     </a>
-    </div>
-   </section>
-  </main>
-  <div id="site-footer-placeholder">
-  </div>
- </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08243d">
+    <meta name="description" content="Publications and conference presentations by GODS group members.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publications | GODS">
+    <meta property="og:description" content="Publications and conference presentations by GODS group members.">
+    <meta property="og:image" content="assets/images/hero-orbits.webp">
+
+    <title>Publications | GODS</title>
+
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script defer src="assets/js/content.js"></script>
+    <script defer src="assets/js/layout.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div id="site-header-placeholder"></div>
+
+    <main id="main">
+
+        <!-- PAGE HEADER -->
+        <section class="page-hero">
+            <img
+                class="hero-bg"
+                src="assets/images/rings.webp"
+                alt=""
+                aria-hidden="true"
+            >
+
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">GODS</a>
+                    <span>/</span>
+                    <span>Publications</span>
+                </div>
+
+                <h1 class="display">
+                    Our scientific contributions
+                </h1>
+
+            </div>
+        </section>
+
+
+        <!-- PUBLICATIONS AND CONFERENCE PRESENTATIONS -->
+        <section class="archive-section surface-white">
+            <div class="container">
+
+                <div class="archive-tools">
+
+                    <div
+                        class="tabs"
+                        role="tablist"
+                        aria-label="Research output categories"
+                    >
+                        <button
+                            type="button"
+                            role="tab"
+                            data-publication-tab="group"
+                            aria-selected="true"
+                        >
+                            Group Publications
+                        </button>
+
+                        <button
+                            type="button"
+                            role="tab"
+                            data-publication-tab="related"
+                            aria-selected="false"
+                        >
+                            Related Publications
+                        </button>
+
+                        <button
+                            type="button"
+                            role="tab"
+                            data-publication-tab="presentations"
+                            aria-selected="false"
+                        >
+                            Conference Presentations
+                        </button>
+                    </div>
+
+                    <div class="filter-fields">
+
+                        <label class="sr-only" for="publication-search">
+                            Search research output
+                        </label>
+
+                        <input
+                            type="search"
+                            id="publication-search"
+                            autocomplete="off"
+                            placeholder="Search titles, authors, events…"
+                        >
+
+                        <label class="sr-only" for="publication-year">
+                            Filter by year
+                        </label>
+
+                        <select id="publication-year">
+                            <option value="">All years</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div
+                    id="publication-count"
+                    class="result-count"
+                    aria-live="polite"
+                ></div>
+
+                <div
+                    id="publications-list"
+                    aria-live="polite"
+                ></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="site-footer-placeholder"></div>
+</body>
+
 </html>

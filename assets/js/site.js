@@ -26,28 +26,154 @@
   document.querySelectorAll('[data-contact-email]').forEach(el=>{let email=String(site.group?.email||'').trim();if(email&&/^\S+@\S+\.\S+$/.test(email)){let a=document.createElement('a');a.href='mailto:'+email;a.textContent=email;el.replaceChildren(a)}else{el.textContent='Contact details will be announced here.'}});
   document.querySelectorAll('[data-github-link]').forEach(el=>{let u=safeUrl(site.group?.github);if(u){el.setAttribute('href',u);el.style.display='inline-flex'}else el.remove()});
 
-  function setupPublications(){
-    const list=byId('publications-list');if(!list)return;
-    const search=byId('publication-search'),year=byId('publication-year'),count=byId('publication-count');
-    const tabs=[...document.querySelectorAll('[data-publication-tab]')];
-    let active=location.hash==='#related'?'related':'group';
-    let items=Array.isArray(site.publications?.[active])?site.publications[active]:[];
-    function updateYears(){items=Array.isArray(site.publications?.[active])?site.publications[active]:[];
-      const years=[...new Set(items.map(i=>Number(i.year)).filter(Number.isFinite))].sort((a,b)=>b-a);
-      let current=year.value;year.innerHTML='<option value="">All years</option>'+years.map(y=>`<option value="${y}">${y}</option>`).join('');
-      if(years.includes(Number(current)))year.value=current;
+  function setupPublications() {
+    const list = byId('publications-list');
+    if (!list) return;
+
+    const search = byId('publication-search');
+    const year = byId('publication-year');
+    const count = byId('publication-count');
+    const tabs = [...document.querySelectorAll('[data-publication-tab]')];
+    const categories = ['group', 'related', 'presentations'];
+
+    let active = categories.includes(location.hash.slice(1))
+      ? location.hash.slice(1)
+      : 'group';
+
+    let items = [];
+
+    function updateYears() {
+      items = Array.isArray(site.publications?.[active])
+        ? site.publications[active]
+        : [];
+
+      const years = [...new Set(
+        items.map(item => Number(item.year)).filter(Number.isFinite)
+      )].sort((a, b) => b - a);
+
+      const previousYear = year?.value || '';
+
+      if (year) {
+        year.innerHTML =
+          '<option value="">All years</option>' +
+          years.map(y => `<option value="${y}">${y}</option>`).join('');
+
+        if (years.includes(Number(previousYear)) && previousYear) {
+          year.value = previousYear;
+        }
+      }
     }
-    function render(){
-      tabs.forEach(t=>{let on=t.dataset.publicationTab===active;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1});
-      let q=(search?.value||'').trim().toLowerCase(),y=year?.value||'';
-      let rows=items.filter(p=>(!y||String(p.year)===y)&&(!q||[p.title,p.authors,p.journal,p.year].join(' ').toLowerCase().includes(q))).sort((a,b)=>Number(b.year)-Number(a.year));
-      count.textContent=`${rows.length} ${rows.length===1?'publication':'publications'}`;
-      if(!rows.length){list.innerHTML=empty(q||y?'No matching publications.':'The publication archive is being prepared.',q||y?'Try changing your search or year filter.':'Published records, journal references and DOIs will be listed here as the group bibliography is finalized.');return}
-      list.innerHTML='<ol class="pub-list">'+rows.map(p=>`<li class="pub-entry"><div class="pub-year">${safe(p.year)}</div><div><h3>${safe(p.title)}</h3><p>${safe(p.authors)}</p><p><i>${safe(p.journal)}</i></p><div class="pub-links">${ext(p.doi,'DOI')}${ext(p.arxiv,'arXiv')}${ext(p.pdf,'PDF')}</div></div><div class="pub-kind">${active==='group'?'Group research':'Related work'}</div></li>`).join('')+'</ol>';
+
+    function render() {
+      tabs.forEach(tab => {
+        const selected = tab.dataset.publicationTab === active;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+      });
+
+      const q = (search?.value || '').trim().toLowerCase();
+      const selectedYear = year?.value || '';
+      const isPresentations = active === 'presentations';
+
+      const rows = items
+        .filter(item => {
+          if (selectedYear && String(item.year) !== selectedYear) {
+            return false;
+          }
+
+          const searchable = [
+            item.title, item.authors, item.presenters,
+            item.journal, item.conference, item.event,
+            item.location, item.type, item.year
+          ].join(' ').toLowerCase();
+
+          return !q || searchable.includes(q);
+        })
+        .sort((a, b) => Number(b.year) - Number(a.year));
+
+      const singular = isPresentations ? 'presentation' : 'publication';
+      const plural = isPresentations ? 'presentations' : 'publications';
+
+      if (count) {
+        count.textContent = `${rows.length} ${rows.length === 1 ? singular : plural}`;
+      }
+
+      if (!rows.length) {
+        list.innerHTML = empty(
+          q || selectedYear
+            ? `No matching ${plural}.`
+            : isPresentations
+              ? 'Conference presentations will appear here.'
+              : 'The publication archive is being prepared.',
+          q || selectedYear
+            ? 'Try changing your search or year filter.'
+            : isPresentations
+              ? 'Talks and posters presented by group members will be listed here.'
+              : 'Published records, journal references and DOIs will be listed here.'
+        );
+        return;
+      }
+
+      list.innerHTML = '<ol class="pub-list">' + rows.map(item => {
+        if (isPresentations) {
+          const conference = item.conference || item.event || '';
+          const authors = item.presenters || item.authors || '';
+          const details = [conference, item.location, item.date]
+            .filter(Boolean)
+            .map(safe)
+            .join(' · ');
+
+          return `
+            <li class="pub-entry">
+              <div class="pub-year">${safe(item.year)}</div>
+              <div>
+                <h3>${safe(item.title)}</h3>
+                ${authors ? `<p>${safe(authors)}</p>` : ''}
+                ${details ? `<p><i>${details}</i></p>` : ''}
+                <div class="pub-links">
+                  ${ext(item.url, 'Conference')}
+                  ${ext(item.pdf, 'PDF')}
+                </div>
+              </div>
+              <div class="pub-kind">${safe(item.type || 'Conference presentation')}</div>
+            </li>`;
+        }
+
+        return `
+          <li class="pub-entry">
+            <div class="pub-year">${safe(item.year)}</div>
+            <div>
+              <h3>${safe(item.title)}</h3>
+              <p>${safe(item.authors)}</p>
+              <p><i>${safe(item.journal)}</i></p>
+              <div class="pub-links">
+                ${ext(item.doi, 'DOI')}
+                ${ext(item.arxiv, 'arXiv')}
+              </div>
+            </div>
+            <div class="pub-kind">
+              ${active === 'group' ? 'Group research' : 'Related work'}
+            </div>
+          </li>`;
+      }).join('') + '</ol>';
     }
-    tabs.forEach(tab=>tab.addEventListener('click',()=>{active=tab.dataset.publicationTab;history.replaceState(null,'',active==='related'?'#related':'#group');updateYears();render()}));
-    search.addEventListener('input',render);year.addEventListener('change',render);updateYears();render();
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        active = tab.dataset.publicationTab;
+        history.replaceState(null, '', '#' + active);
+        updateYears();
+        render();
+      });
+    });
+
+    if (search) search.addEventListener('input', render);
+    if (year) year.addEventListener('change', render);
+
+    updateYears();
+    render();
   }
+
   // Render the people directory. Profiles are edited in content.js.
   function setupPeople() {
     const slot = byId('principal-investigator');

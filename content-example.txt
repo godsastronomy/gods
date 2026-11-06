@@ -1,0 +1,28 @@
+// In assets/js/content.js, inside "publications", keep the existing group
+// and related arrays. Add a comma after related: [...] and then this entry:
+
+presentations: [
+  /* EXAMPLE — remove the comment markers to enable a real record:
+  {
+    title: 'Title of the presentation',
+    presenters: 'Author A., Author B., & Author C.',
+    conference: 'Name of the scientific conference',
+    location: 'City, Country',
+    year: 2026,
+    date: 'November 6, 2026',
+    type: 'Oral presentation',   // Or 'Poster'
+    url: '',                    // Conference website
+    abstract: '',               // Abstract URL
+    slides: '',                 // Presentation slides URL
+    poster: '',                 // Poster URL
+    pdf: ''                     // Alternative PDF URL
+  }
+  */
+]
+
+// Example of the enclosing structure:
+// publications: {
+//   group: [ ... ],
+//   related: [ ... ],
+//   presentations: [ ... ]
+// },

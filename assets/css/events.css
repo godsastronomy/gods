@@ -1,0 +1,214 @@
+/* GODS — Workshop sections for events.html
+   Uses the site's existing colors and typography. */
+
+.workshop-next {
+    padding: 100px 0 110px;
+    background: var(--ivory);
+    border-bottom: 1px solid #d9d4c9;
+}
+
+.workshop-next-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.35fr);
+    gap: clamp(35px, 7vw, 110px);
+    align-items: start;
+}
+
+.workshop-next-date {
+    border-top: 1px solid #b7b3aa;
+    padding-top: 27px;
+}
+
+.workshop-next-date .kicker {
+    margin-bottom: 36px;
+}
+
+.date-large {
+    font: 700 clamp(78px, 10vw, 148px)/0.94 var(--display);
+    letter-spacing: -0.095em;
+    color: var(--navy);
+    white-space: nowrap;
+}
+
+.date-month {
+    font: 600 clamp(24px, 3vw, 38px)/1.2 var(--display);
+    letter-spacing: -0.045em;
+    color: #5f7588;
+    margin-top: 18px;
+}
+
+.workshop-next-content {
+    border-top: 1px solid #b7b3aa;
+    padding-top: 27px;
+}
+
+.workshop-status {
+    display: inline-block;
+    border: 1px solid #7895a2;
+    padding: 7px 12px;
+    font: 700 11px var(--display);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #38596e;
+}
+
+.workshop-next-content h2 {
+    font-size: clamp(34px, 4.6vw, 67px);
+    margin: 26px 0;
+    overflow-wrap: anywhere;
+}
+
+.workshop-next-content p {
+    max-width: 640px;
+    color: #556673;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.workshop-next-content .workshop-coming-soon {
+    margin-top: 32px;
+    color: #163652;
+    font-weight: 700;
+    padding-left: 20px;
+    border-left: 3px solid #bb9b71;
+}
+
+.workshop-past {
+    padding: 104px 0 112px;
+    background: #fff;
+}
+
+.workshop-section-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid #bac6cc;
+    padding-top: 27px;
+}
+
+.workshop-year {
+    font: 600 13px var(--display);
+    letter-spacing: 0.1em;
+    color: #687d8b;
+}
+
+.workshop-title-grid {
+    margin-top: 45px;
+    margin-bottom: 54px;
+}
+
+.workshop-title-grid h2 {
+    font-size: clamp(35px, 5.6vw, 81px);
+    margin: 0 0 24px;
+    max-width: 1050px;
+}
+
+.workshop-meta {
+    color: #637484;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+.workshop-separator {
+    display: inline-block;
+    margin: 0 12px;
+    color: #bd9279;
+}
+
+.workshop-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(30px, 5vw, 80px);
+    align-items: center;
+    border-top: 1px solid #d2d9db;
+    padding-top: 46px;
+}
+
+.workshop-copy p {
+    color: #566674;
+    font-size: 17px;
+    line-height: 1.85;
+    margin: 0 0 25px;
+}
+
+.workshop-copy .line-link {
+    margin-top: 10px;
+    color: #173d59;
+}
+
+.workshop-artwork,
+.workshop-photo {
+    margin: 0;
+}
+
+.workshop-artwork img,
+.workshop-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.workshop-artwork {
+    background: #0b1832;
+}
+
+.workshop-artwork figcaption,
+.workshop-photo figcaption {
+    font: 500 12px/1.6 var(--font);
+    color: #667580;
+    background: white;
+    padding-top: 14px;
+}
+
+.workshop-photo {
+    margin-top: 82px;
+    border-top: 1px solid #d2d9db;
+    padding-top: 35px;
+}
+
+.workshop-photo img {
+    max-height: 700px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+@media (max-width: 800px) {
+    .workshop-next {
+        padding: 65px 0 70px;
+    }
+
+    .workshop-next-grid,
+    .workshop-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .workshop-next-grid {
+        gap: 50px;
+    }
+
+    .workshop-next-date .kicker {
+        margin-bottom: 20px;
+    }
+
+    .date-large {
+        font-size: clamp(64px, 16vw, 110px);
+    }
+
+    .workshop-past {
+        padding: 70px 0 80px;
+    }
+
+    .workshop-title-grid {
+        margin-top: 30px;
+        margin-bottom: 35px;
+    }
+
+    .workshop-overview {
+        padding-top: 30px;
+    }
+
+    .workshop-photo {
+        margin-top: 55px;
+    }
+}

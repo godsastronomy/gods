@@ -47,28 +47,73 @@ window.GODS_CONTENT = {
 
   publications: {
     group: [
-      /* EXAMPLE (delete the comment markers and replace ALL sample values):
       {
-        title: 'Your published paper title',
-        authors: 'Author A., Author B., & Author C.',
-        journal: 'Journal name, volume, article number',
+        title: 'Disruption Limits Around Triaxial Bodies and Implications for Ring-bearing Minor Bodies',
+        authors: 'G. Madeira & T.F.L.L. Pinheiro',
+        journal: 'The Planetary Science Journal',
         year: 2026,
-        doi: 'https://doi.org/10.XXXX/EXAMPLE',
-        arxiv: '',
-        pdf: ''
+        doi: 'https://doi.org/10.3847/PSJ/aebd8d',
+        arxiv: 'https://arxiv.org/abs/2611.04800'
       },
-      */
+      {
+        title: 'Decoding transit variations: disentangling satellites from planets through numerical modulation',
+        authors: 'T.F.L.L. Pinheiro, B. Morgado, G. Madeira, L. Esteves, J.I.B. Camargo, & F. Roig',
+        journal: 'Monthly Notices of the Royal Astronomical Society, 548(4), stag761',
+        year: 2026,
+        doi: 'https://doi.org/10.1093/mnras/stag761',
+        arxiv: 'https://doi.org/10.1093/mnras/stag761'
+      },
+      {
+        title: 'Do self-gravitating hard-sphere disk simulations form Darwin ellipsoids?',
+        authors: 'G. Madeira, L. Esteves & T.F.L.L. Pinheiro',
+        journal: 'The European Physical Journal Special Topics, 234(25), 7787-7798',
+        year: 2026,
+        doi: 'https://doi.org/10.1140/epjs/s11734-025-01985-2',
+        arxiv: 'https://doi.org/10.1140/epjs/s11734-025-01985-2'
+      },
+      {
+        title: 'On the formation of satellites in dense solid-particle disks',
+        authors: 'G. Madeira, L. Esteves, T.F.L.L. Pinheiro, P.V.S. Soares, N.S. Santos & B. Morgado',
+        journal: 'Planetary and Space Science, 106168',
+        year: 2025,
+        doi: 'https://doi.org/10.1016/j.pss.2025.106168',
+        arxiv: 'https://arxiv.org/abs/2507.04954'
+      },
     ],
     related: [
-      // Publications by members not produced as part of GODS research.
+      {
+        title: 'Dynamical implications of the recently detected feature around Quaoar and constraints on the presence of additional satellites',
+        authors: 'G. Madeira, L. Esteves, B.E. Morgado, P.V.S. Soares, S.M. Giuliatti Winter, O.C. Winter & B.S. Chagas',
+        journal: 'The Planetary Science Journal, 7(7), 168',
+        year: 2026,
+        doi: 'https://doi.org/10.3847/PSJ/ae81a8',
+        arxiv: 'https://arxiv.org/abs/2606.23850'
+      }, 
+      {
+        title: 'Dynamical Environment and Stability around Centaur (2060) Chiron',
+        authors: 'G. Madeira, B.E. Morgado, C.L. Pereira, G. Ramon, R. Sfair, F. Braga-Ribas',
+        journal: 'The Astrophysical Journal, 994(2), 268',
+        year: 2025,
+        doi: 'https://doi.org/10.3847/1538-4357/ae169e',
+        arxiv: 'https://arxiv.org/abs/2510.20693'
+      }, 
+    ],
+    presentations: [
+    {
+        title: 'On the formation of satellites in dense solid-particle disks',
+        presenters: 'G. Madeira',
+        conference: 'Friends of Friends meeting 2026',
+        location: 'Cordoba, Argentina',
+        year: 2026,
+        date: 'April 9, 2026',
+        type: 'Oral presentation',
+        url: 'https://fof.oac.uncor.edu/2026/',
+        pdf: 'assets/talk/FOF_presentation.pdf'
+    }
     ]
   },
 
   resources: [
-    /* Example: {title:'Name of dataset', kind:'Dataset', description:'Description',
-       url:'https://doi.org/...', citation:'Authors, year', year:2026} */
-    /* Or: {title:'Software name', kind:'Software', description:'Description',
-       url:'https://github.com/...', citation:'', year:2026} */
   ],
 
   events: [

@@ -1,0 +1,19 @@
+// Inside window.GODS_CONTENT.publications, add this after related: [...] :
+presentations: [
+  /*
+  {
+    title: 'Title of the presentation',
+    presenters: 'Author A., Author B., & Author C.',
+    conference: 'Name of the scientific conference',
+    location: 'City, Country',
+    year: 2026,
+    date: 'November 6, 2026',  // Optional
+    type: 'Oral presentation', // Or 'Poster'
+    url: '',                   // Conference website, optional
+    abstract: '',              // Link to abstract, optional
+    slides: '',                // Link to slides, optional
+    poster: '',                // Link to poster, optional
+    pdf: ''                    // Optional alternative PDF link
+  }
+  */
+]
