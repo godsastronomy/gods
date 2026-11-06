@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GODS ringed planet favicon">
+<defs><linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#52748e"/><stop offset="1" stop-color="#082f56"/></linearGradient></defs>
+<rect width="64" height="64" rx="15" fill="#f5f1e5"/>
+<ellipse cx="32" cy="33" rx="29" ry="10" transform="rotate(-21 32 33)" fill="none" stroke="#082f56" stroke-width="4"/>
+<circle cx="32" cy="31" r="19" fill="url(#p)" stroke="#082f56" stroke-width="2"/>
+<path d="M16 38C25 33 44 31 51 23" fill="none" stroke="#e8dcc3" stroke-width="3"/>
+<path d="M7 45C19 51 47 36 57 19" fill="none" stroke="#f5f1e5" stroke-width="5"/>
+<path d="M7 45C19 51 47 36 57 19" fill="none" stroke="#082f56" stroke-width="1.2"/>
+</svg>
