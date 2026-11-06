@@ -1,47 +1,64 @@
-# GODS / Research Data update
+# GODS — Google Search setup
 
-## Files to add to the existing GODS site
+This package is designed for the existing GODS project at:
+https://godsastronomy.github.io/gods/
 
-- `data.html` — replace the current Research Data landing page.
-- `data3.html` — 2025b paper, two Figure 1 animations.
-- `data4.html` — 2025c paper, one Figure 2 animation.
-- `assets/css/research-data.css` — new CSS specific to these pages.
-- `download-videos.sh` — optional one-time downloader for the three original videos.
+## 1. Add files and update metadata without overwriting your content
 
-All HTML files use your existing `assets/js/content.js`, `assets/js/layout.js`,
-`assets/css/style.css`, and shared `components/header.html` and `components/footer.html`.
-Do **not** replace your JavaScript, header or footer.
+Copy `apply_seo.py` into the root of your existing GODS project, next to `index.html`.
+In the Terminal, `cd` into your GODS project and run:
 
-## Move the actual videos from the personal site
+    python3 apply_seo.py --dry-run
+    python3 apply_seo.py
 
-The MP4s are not included in this ZIP. To migrate them to the GODS
-repository, open a terminal inside the GODS project and run:
+This updates only the HEAD metadata of the existing HTML pages. It does NOT
+replace their body content, cards, dates, member profiles, publications, CSS,
+JavaScript, media, or shared header/footer. The script generates `sitemap.xml`
+from the page filenames that actually exist in that directory.
 
-```bash
-bash download-videos.sh
-```
+Alternatively, just copy the provided `sitemap.xml` into your site root and
+skip the script. But then the per-page titles, descriptions, canonical URL
+and structured data won't be improved.
 
-This creates:
+## 2. Publish
 
-- `assets/research/sim_11.mp4` (Figure 1, top line; source ~3.11 MB)
-- `assets/research/sim_26.mp4` (Figure 1, bottom line; source ~3.19 MB)
-- `assets/research/GODS_shape.mp4` (Figure 2; source ~8.2 MB)
+    git status
+    git add .
+    git commit -m "Improve GODS SEO and add sitemap"
+    git push origin main
 
-The pages already include a remote source as a fallback while the files
-have not been copied, and will prioritize the local MP4s after migration.
-Upload the three videos along with the other files to the GODS repository.
+Once the GitHub Pages deployment succeeds, verify in your browser:
+https://godsastronomy.github.io/gods/sitemap.xml
 
-## References and captions
+## 3. Google Search Console (required manual ownership verification)
 
-Scientific descriptions and filenames were preserved from:
+Go to https://search.google.com/search-console
+Add a **URL-prefix** property:
 
-- https://gusmadeira.github.io/data3.html
-- https://gusmadeira.github.io/data4.html
+    https://godsastronomy.github.io/gods/
 
-The papers are linked to their original reference destinations (arXiv,
-ReadCube). Nothing needs to change in `site.js` or `content.js`.
+Choose **HTML file upload**, download the ORIGINAL verification file supplied
+by Google, place it next to index.html, commit and push. After it is publicly
+available, click **Verify** in Search Console. Do not invent or rename the file.
 
-## Preview
+Then go to Indexing > Sitemaps and submit:
 
-Use Phoenix Code Live Preview (or a local HTTP server), not `file://`,
-so that shared header/footer components can be fetched.
+    https://godsastronomy.github.io/gods/sitemap.xml
+
+Use URL Inspection on your homepage and key Research/Research Data pages, and
+request indexing. Indexing is not immediate or guaranteed.
+
+## Technical notes
+
+- This is a GitHub Pages project website served at /gods/. A `robots.txt` file
+  at /gods/robots.txt is NOT the host-root robots.txt for github.io; don't
+  rely on it to control crawling. A sitemap submitted through Search Console
+  works without a project-level robots.txt.
+- No `lastmod` dates were invented. Google recommends them only when reliably
+  reflecting substantial page changes.
+- OG metadata, canonical URLs and JSON-LD structured data are included.
+- Google may render JavaScript content, but directly written static HTML is
+  more straightforward for crawlers. If Publications and People are populated
+  entirely via JS, inspect the rendered HTML in Search Console.
+- If you later choose a custom domain, update BASE inside `apply_seo.py` and
+  regenerate the sitemap and canonicals.
