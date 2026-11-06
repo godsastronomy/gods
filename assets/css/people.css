@@ -1,0 +1,115 @@
+/* GODS / People page styles
+   This stylesheet extends style.css without changing other pages.
+*/
+
+/* Keep the existing Leadership layout, now with an optional portrait. */
+#principal-investigator {
+    margin-top: 24px;
+}
+
+.person-picture,
+.member-portrait {
+    overflow: hidden;
+    position: relative;
+}
+
+.person-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+/* The same link design works for the leader and team members. */
+.person-links a {
+    color: #0b3653;
+    font: 700 12px/1.5 var(--display);
+    border-bottom: 1px solid #a17b63;
+    padding-bottom: 4px;
+    transition: color 160ms ease;
+}
+
+.person-links a:hover,
+.person-links a:focus-visible {
+    color: #9e694c;
+}
+
+/* Photo-led cards for Researchers and Students. */
+.roster-grid {
+    align-items: start;
+    gap: 30px;
+}
+
+.person-small {
+    padding: 0 0 28px;
+    border-top: 3px solid #0b314f;
+    background: #f5f3ee;
+}
+
+.member-portrait {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    background: #14334c url('../images/moons.webp') center / cover no-repeat;
+}
+
+.member-monogram {
+    display: grid;
+    place-items: center;
+    width: 105px;
+    height: 105px;
+    border: 1px solid rgba(245, 241, 229, 0.7);
+    border-radius: 50%;
+    color: #f5f1e5;
+    font: 700 35px var(--display);
+    letter-spacing: -0.05em;
+}
+
+.member-details {
+    padding: 23px 22px 8px;
+}
+
+.person-small h4 {
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+
+.person-small .member-affiliation {
+    margin: 14px 0 12px;
+    color: #405466;
+}
+
+.person-small .member-interests {
+    margin: 0;
+    color: #586a76;
+    line-height: 1.55;
+}
+
+.member-interests strong {
+    color: #163b55;
+}
+
+.person-small .member-links {
+    margin-top: 22px;
+    gap: 20px;
+}
+
+@media (max-width: 960px) {
+    .roster-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .roster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-portrait {
+        aspect-ratio: 16 / 10;
+    }
+}

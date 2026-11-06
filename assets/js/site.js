@@ -48,18 +48,128 @@
     tabs.forEach(tab=>tab.addEventListener('click',()=>{active=tab.dataset.publicationTab;history.replaceState(null,'',active==='related'?'#related':'#group');updateYears();render()}));
     search.addEventListener('input',render);year.addEventListener('change',render);updateYears();render();
   }
-  function setupPeople(){
-    const slot=byId('principal-investigator');if(!slot)return;
-    const people=Array.isArray(site.people)?site.people:[];
-    const lead=people.find(x=>x.group==='Leadership')||people[0];
-    if(lead){
-      const letters=lead.name.split(/\s+/).filter(Boolean);const monogram=((letters[0]||'G')[0]+(letters[letters.length-1]||'M')[0]).toUpperCase();
-      const portrait=lead.image&&safeImage(lead.image)?`<img src="${safe(safeImage(lead.image))}" alt="Portrait of ${safe(lead.name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1">`:`<span class="person-monogram" aria-hidden="true">${safe(monogram)}</span>`;
-      slot.innerHTML=`<div class="person-feature"><div class="person-picture">${portrait}</div><div class="person-content"><div class="role">${safe(lead.role)}</div><h3 class="display">${safe(lead.name)}</h3><div class="text-label">${safe(lead.affiliation)}</div><p>${safe(lead.summary)}</p><div class="person-links">${ext(lead.url,'Profile')}${ext(lead.orcid,'ORCID')}</div></div></div>`;
-    }else slot.innerHTML=empty('Leadership profile coming soon.','Meet the researchers behind GODS as team biographies are added.');
-    const groups=[['Researchers','Researchers'],['Students','Students'],['Collaborators','Collaborators'],['Alumni','Alumni']];
-    const out=byId('team-groups');if(!out)return;
-    out.innerHTML=groups.map(([name,kind])=>{const members=people.filter(p=>p.group===kind);return `<section class="roster-group"><h3>${name}</h3>${members.length?'<div class="roster-grid">'+members.map(p=>`<article class="person-small"><h4>${safe(p.name)}</h4><div class="text-label">${safe(p.role)}</div><p>${safe(p.affiliation)}</p>${ext(p.url,'Profile')}</article>`).join('')+'</div>':`<div class="blank-panel"><p>${safe(name)} profiles will appear here as the directory is updated.</p></div>`}</section>`}).join('');
+  // Render the people directory. Profiles are edited in content.js.
+  function setupPeople() {
+    const slot = byId('principal-investigator');
+    if (!slot) return;
+
+    const people = Array.isArray(site.people) ? site.people : [];
+    const lead = people.find(person => person.group === 'Leadership');
+
+    function initials(name) {
+      const words = String(name || '').trim().split(/\s+/).filter(Boolean);
+      return ((words[0] || 'G')[0] + (words[words.length - 1] || 'M')[0]).toUpperCase();
+    }
+
+    // A monogram remains visible if an image has not yet been uploaded.
+    function portrait(person, isLeader) {
+      const path = person.image ? safeImage(person.image) : '';
+      const monogram = isLeader
+        ? `<span class="person-monogram" aria-hidden="true">${safe(initials(person.name))}</span>`
+        : `<span class="member-monogram" aria-hidden="true">${safe(initials(person.name))}</span>`;
+      const photo = path
+        ? `<img class="person-photo" src="${safe(path)}" alt="Portrait of ${safe(person.name)}" loading="lazy">`
+        : '';
+
+      return isLeader
+        ? `<div class="person-picture">${monogram}${photo}</div>`
+        : `<div class="member-portrait">${monogram}${photo}</div>`;
+    }
+
+    function emailText(address) {
+        const email = String(address || '').trim();
+        if (!email) return '';
+
+        return `<span class="person-email">${safe(email)}</span>`;
+    }
+
+    function profileLinks(person, leader) {
+      const links = leader
+        ? [
+            ext(person.website || person.url, 'Personal website'),
+            ext(person.orcid, 'ORCID'),
+            ext(person.lattes, 'Lattes'),
+            emailText(person.email)
+          ]
+        : [
+            ext(person.orcid, 'ORCID'),
+            ext(person.lattes, 'Lattes'),
+            emailText(person.email)
+        ];
+
+      const visibleLinks = links.filter(Boolean);
+      return visibleLinks.length
+        ? `<div class="person-links${leader ? '' : ' member-links'}">${visibleLinks.join('')}</div>`
+        : '';
+    }
+
+    if (lead) {
+      slot.innerHTML = `
+        <article class="person-feature">
+          ${portrait(lead, true)}
+          <div class="person-content">
+            <div class="role">${safe(lead.role)}</div>
+            <h3 class="display">${safe(lead.name)}</h3>
+            <div class="text-label">${safe(lead.affiliation)}</div>
+            ${lead.summary ? `<p>${safe(lead.summary)}</p>` : ''}
+            ${profileLinks(lead, true)}
+          </div>
+        </article>
+      `;
+    } else {
+      slot.innerHTML = empty(
+        'Leadership profile coming soon.',
+        'Leadership information will appear here.'
+      );
+    }
+
+    const out = byId('team-groups');
+    if (!out) return;
+
+    // Only Researchers and Students; no Collaborators or Alumni.
+    const groups = [
+      ['Researchers', 'Researchers'],
+      ['Students', 'Students']
+    ];
+
+    function interestText(person) {
+      const interests = Array.isArray(person.interests)
+        ? person.interests.filter(Boolean)
+        : (person.interests ? [person.interests] : []);
+      return interests.length
+        ? `<p class="member-interests"><strong>Research interests:</strong> ${safe(interests.join(', '))}</p>`
+        : '';
+    }
+
+    out.innerHTML = groups.map(([heading, kind]) => {
+      const members = people.filter(person => person.group === kind);
+      const entries = members.map(person => `
+        <article class="person-small">
+          ${portrait(person, false)}
+          <div class="member-details">
+            <h4>${safe(person.name)}</h4>
+            ${person.role ? `<div class="text-label">${safe(person.role)}</div>` : ''}
+            ${person.affiliation ? `<p class="member-affiliation">${safe(person.affiliation)}</p>` : ''}
+            ${interestText(person)}
+            ${profileLinks(person, false)}
+          </div>
+        </article>
+      `).join('');
+
+      return `
+        <section class="roster-group">
+          <h3>${safe(heading)}</h3>
+          ${members.length
+            ? `<div class="roster-grid">${entries}</div>`
+            : `<div class="blank-panel"><p>${safe(heading)} profiles will appear here as the directory is updated.</p></div>`}
+        </section>
+      `;
+    }).join('');
+
+    // Missing images fall back to initials rather than displaying broken icons.
+    document.querySelectorAll('#main .person-photo').forEach(img => {
+      img.addEventListener('error', () => img.remove());
+    });
   }
   function setupData(){
     const out=byId('resources-list');if(!out)return;

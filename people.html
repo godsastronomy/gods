@@ -1,105 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="#08243d" name="theme-color"/>
-  <meta content="People and collaborators of GODS research group." name="description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="People | GODS" property="og:title"/>
-  <meta content="People and collaborators of GODS research group." property="og:description"/>
-  <meta content="assets/images/hero-orbits.webp" property="og:image"/>
-  <title>
-   People | GODS &mdash; Group of Origin and Dynamics of Satellites
-  </title>
-  <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="assets/css/style.css" rel="stylesheet"/>
-  <script defer="" src="assets/js/content.js">
-  </script>
-  <script defer="" src="assets/js/layout.js">
-  </script>
- </head>
- <body>
-  <a class="skip-link" href="#main">
-   Skip to content
-  </a>
-  <div id="site-header-placeholder">
-  </div>
-  <main id="main">
-   <section class="page-hero">
-    <img alt="" aria-hidden="true" class="hero-bg" src="assets/images/moons.webp"/>
-    <div class="container">
-     <div class="breadcrumb">
-      <a href="index.html">
-       GODS
-      </a>
-      <span>
-       /
-      </span>
-      <span>
-       People
-      </span>
-     </div>
-     <h1 class="display">
-      The people
-      <br/>
-      behind the science.
-     </h1>
-     <p>
-      Meet the researchers and collaborators working to understand the origins and dynamics of satellite systems.
-     </p>
-    </div>
-   </section>
-   <section class="people-section surface-white">
-    <div class="container">
-     <div class="kicker overline">
-      Leadership
-     </div>
-     <h2 class="display people-heading">
-      Research led by curiosity.
-     </h2>
-     <div aria-live="polite" id="principal-investigator">
-     </div>
-    </div>
-   </section>
-   <section class="roster">
-    <div class="container">
-     <div class="kicker overline">
-      The group
-     </div>
-     <h2 class="display section-title" style="margin:20px 0 15px">
-      People &amp; collaborations.
-     </h2>
-     <p class="body-xl muted" style="max-width:680px">
-      Our directory brings together researchers, students and collaborators contributing to the scientific life of GODS.
-     </p>
-     <div id="team-groups">
-     </div>
-    </div>
-   </section>
-   <section class="action-band">
-    <div class="container">
-     <div>
-      <div class="kicker">
-       Work with us
-      </div>
-      <h2 class="display">
-       Science is collaborative.
-      </h2>
-      <p>
-       Interested in research and scientific exchange? Learn how to contact the group.
-      </p>
-     </div>
-     <a class="line-link" href="contact.html">
-      Contact GODS
-      <span class="arrow">
-       &nearrow;
-      </span>
-     </a>
-    </div>
-   </section>
-  </main>
-  <div id="site-footer-placeholder">
-  </div>
- </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08243d">
+    <meta name="description" content="Researchers and students of the GODS research group.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="People | GODS">
+    <meta property="og:description" content="Researchers and students of the GODS research group.">
+    <meta property="og:image" content="assets/images/hero-orbits.webp">
+
+    <title>People | GODS</title>
+
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/people.css">
+
+    <script defer src="assets/js/content.js"></script>
+    <script defer src="assets/js/layout.js"></script>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Shared header -->
+    <div id="site-header-placeholder"></div>
+
+    <main id="main">
+
+        <section class="page-hero">
+            <img
+                class="hero-bg"
+                src="assets/images/moons.webp"
+                alt=""
+                aria-hidden="true"
+            >
+
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">GODS</a>
+                    <span>/</span>
+                    <span>People</span>
+                </div>
+
+                <h1 class="display">Meet the researchers</h1>
+            </div>
+        </section>
+
+        <!-- Principal Investigator -->
+        <section class="people-section surface-white">
+            <div class="container">
+                <div class="kicker overline">Leadership</div>
+                <div id="principal-investigator" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- Researchers and students -->
+        <section class="roster">
+            <div class="container">
+                <div class="kicker overline">The group</div>
+                <div id="team-groups"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared footer -->
+    <div id="site-footer-placeholder"></div>
+
+</body>
 </html>

@@ -13,16 +13,36 @@ window.GODS_CONTENT = {
 
   people: [
     {
-      name: 'Gustavo Oliveira Madeira',
+      name: 'Gustavo Madeira',
       role: 'Principal Investigator',
       group: 'Leadership',
       affiliation: 'Observatório Nacional, Rio de Janeiro, Brazil',
-      summary: 'Research interests include the formation and dynamical evolution of satellite systems, planetary rings, and small-body systems.',
-      image: '',                // assets/images/name.webp, optional
-      url: '',                  // professional profile, optional
-      orcid: ''                 // https://orcid.org/..., optional
+      summary: 'His research focuses on the formation and dynamics of satellites, planetary rings, and small bodies, primarily through numerical simulations. He contributed to NASA’s DART mission and is a member of ESA’s Hera and RAMSES missions.',
+
+      // Save your portrait at this path to display it automatically.
+      image: 'assets/images/gustavo.png',
+
+      // Fill in your links below. Leave blank to hide a link.
+      website: 'https://gusmadeira.github.io/index.html',              // https://your-personal-website.example
+      orcid: 'https://orcid.org/0000-0001-5138-230X',                // https://orcid.org/0000-0000-0000-0000
+      lattes: 'http://lattes.cnpq.br/2751228869487751',               // http://lattes.cnpq.br/...
+      email: 'madeira@on.br'       // Change if you prefer a different contact address
     }
-    // Add members here, separating entries with commas.
+
+    ,{
+      name: 'Full Name',
+      role: 'Researcher',       // Or: Master's Student, PhD Student, etc.
+      group: 'Researchers',    // Or: 'Students'
+      affiliation: 'University or institute, City, Country',
+      interests: [
+        'Satellite formation',
+        'Orbital dynamics'
+      ],
+      image: 'assets/images/full-name.webp',
+      orcid: 'https://orcid.org/0000-0000-0000-0000',
+      lattes: 'http://lattes.cnpq.br/...',               // http://lattes.cnpq.br/...
+      email: 'email@email.com'  
+    }    
   ],
 
   publications: {
