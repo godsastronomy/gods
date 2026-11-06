@@ -1,146 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="#08243d" name="theme-color"/>
-  <meta content="Open research data, code and software from GODS." name="description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="Research Data | GODS" property="og:title"/>
-  <meta content="Open research data, code and software from GODS." property="og:description"/>
-  <meta content="assets/images/hero-orbits.webp" property="og:image"/>
-  <title>
-   Research Data | GODS &mdash; Group of Origin and Dynamics of Satellites
-  </title>
-  <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="assets/css/style.css" rel="stylesheet"/>
-  <script defer="" src="assets/js/content.js">
-  </script>
-  <script defer="" src="assets/js/layout.js">
-  </script>
- </head>
- <body>
-  <a class="skip-link" href="#main">
-   Skip to content
-  </a>
-  <div id="site-header-placeholder">
-  </div>
-  <main id="main">
-   <section class="page-hero">
-    <img alt="" aria-hidden="true" class="hero-bg" src="assets/images/data-field.webp"/>
-    <div class="container">
-     <div class="breadcrumb">
-      <a href="index.html">
-       GODS
-      </a>
-      <span>
-       /
-      </span>
-      <span>
-       Research Data
-      </span>
-     </div>
-     <h1 class="display">
-      Open methods.
-      <br/>
-      Shared science.
-     </h1>
-     <p>
-      A home for datasets, numerical tools and software connected to research on satellite systems.
-     </p>
-    </div>
-   </section>
-   <section class="page-intro">
-    <div class="container page-intro-grid">
-     <div class="kicker overline">
-      Open science / Data &amp; software
-     </div>
-     <div>
-      <h2 class="display">
-       Reproducibility strengthens discovery.
-      </h2>
-      <p>
-       We aim to make scientific outputs easier to discover, understand and reuse. This section will bring together datasets, source codes, computational tools and links to their documentation and recommended citations as they become available.
-      </p>
-     </div>
-    </div>
-   </section>
-   <section class="archive-section surface-white">
-    <div class="container">
-     <div class="section-header">
-      <div>
-       <div class="kicker overline">
-        Research resources
-       </div>
-       <h2 class="display section-title" style="margin-top:20px">
-        Data &amp; software.
-       </h2>
-      </div>
-     </div>
-     <div class="archive-tools">
-      <div aria-label="Resource types" class="tabs" role="tablist">
-       <button aria-selected="true" data-resource-tab="all" role="tab" type="button">
-        All Resources
-       </button>
-       <button aria-selected="false" data-resource-tab="dataset" role="tab" type="button">
-        Datasets
-       </button>
-       <button aria-selected="false" data-resource-tab="software" role="tab" type="button">
-        Software &amp; Tools
-       </button>
-      </div>
-     </div>
-     <div aria-live="polite" id="resources-list">
-     </div>
-    </div>
-   </section>
-   <section class="data-guidelines">
-    <div class="container">
-     <div class="kicker overline">
-      A practical approach
-     </div>
-     <h2 class="display section-title" style="margin:18px 0 0">
-      Built to be useful.
-     </h2>
-     <div class="guideline-grid">
-      <div class="guideline">
-       <div class="count">
-        01
-       </div>
-       <h3>
-        Accessible
-       </h3>
-       <p>
-        Resources can link directly to public repositories, archives and supplementary materials.
-       </p>
-      </div>
-      <div class="guideline">
-       <div class="count">
-        02
-       </div>
-       <h3>
-        Documented
-       </h3>
-       <p>
-        Descriptions explain what each dataset or code package contains and how it is intended to be used.
-       </p>
-      </div>
-      <div class="guideline">
-       <div class="count">
-        03
-       </div>
-       <h3>
-        Citable
-       </h3>
-       <p>
-        When available, recommended citations and persistent identifiers help researchers acknowledge the original work.
-       </p>
-      </div>
-     </div>
-    </div>
-   </section>
-  </main>
-  <div id="site-footer-placeholder">
-  </div>
- </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08243d">
+    <meta name="description" content="Scientific animations and research data associated with publications by GODS.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Research Data | GODS">
+    <meta property="og:description" content="Scientific animations and research data associated with publications by GODS.">
+    <meta property="og:image" content="assets/images/data-field.webp">
+
+    <title>Research Data | GODS</title>
+
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/research-data.css">
+
+    <script defer src="assets/js/content.js"></script>
+    <script defer src="assets/js/layout.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div id="site-header-placeholder"></div>
+
+    <main id="main">
+        <!-- PAGE HEADER -->
+        <section class="page-hero rd-hero">
+            <img
+                class="hero-bg"
+                src="assets/images/data-field.webp"
+                alt=""
+                aria-hidden="true"
+            >
+
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">GODS</a>
+                    <span>/</span>
+                    <a href="data.html">Research Data</a>
+
+                </div>
+
+                <h1 class="display">Research Data</h1>
+            </div>
+        </section>
+
+        <!-- ARTICLES MENU -->
+        <section class="rd-library surface-white">
+            <div class="container">
+
+                <div class="kicker overline">Data by publication</div>
+
+                <div class="rd-library-head">
+                    <h2 class="display">Research material</h2>
+                </div>
+
+                <nav class="rd-article-menu" aria-label="Papers with available research data">
+
+                    <a class="rd-paper" href="data3.html">
+                        <span class="rd-paper-ref">2025b <span class="rd-paper-author">Madeira et al.</span></span>
+
+                        <span class="rd-paper-body">
+                            <span class="rd-paper-title">
+                                On the formation of satellites in dense solid-particle disks
+                            </span>
+                            <span class="rd-paper-desc">
+                                Figure 1 · Two numerical simulation animations
+                            </span>
+                        </span>
+
+                        <span class="rd-paper-arrow" aria-hidden="true">↗</span>
+                    </a>
+
+                    <a class="rd-paper" href="data4.html">
+                        <span class="rd-paper-ref">2026a <span class="rd-paper-author">Madeira et al.</span></span>
+
+                        <span class="rd-paper-body">
+                            <span class="rd-paper-title">
+                                Do Self-Gravitating Hard-Sphere Disk Simulations Form Darwin Ellipsoids?
+                            </span>
+                            <span class="rd-paper-desc">
+                                Figure 2 · Numerical simulation animation
+                            </span>
+                        </span>
+
+                        <span class="rd-paper-arrow" aria-hidden="true">↗</span>
+                    </a>
+
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer-placeholder"></div>
+</body>
+
 </html>
