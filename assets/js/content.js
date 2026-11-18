@@ -109,7 +109,19 @@ window.GODS_CONTENT = {
         type: 'Oral presentation',
         url: 'https://fof.oac.uncor.edu/2026/',
         pdf: 'assets/talk/FOF_presentation.pdf'
+    },
+    {
+        title: 'On the formation of satellites in dense solid-particle disks',
+        presenters: 'G. Madeira',
+        conference: '9th Annual Meeting of the Brazilian Astrobiology Society',
+        location: 'Itajubá, Brazil',
+        year: 2026,
+        date: 'November 11, 2026',
+        type: 'Oral presentation',
+        url: 'https://www.even3.com.br/ix-reuniao-anual-da-sbastrobio-720334/',
+        pdf: 'assets/talk/Apresentacao_SBA_compressed.pdf'
     }
+
     ]
   },
 
