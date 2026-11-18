@@ -17,7 +17,7 @@ import argparse
 import json
 import re
 
-BASE = 'https://godsastronomy.github.io/gods/'
+BASE = 'https://astrogods.org/'
 LOGO = urljoin(BASE, 'assets/images/gods-logo.png')
 OG_IMAGE = urljoin(BASE, 'assets/images/hero-orbits.webp')
 
